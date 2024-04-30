@@ -22,4 +22,34 @@ exports.createTodos = function(req, res) {
   })
 }
 
+exports.getTodo = function(req, res) {
+  db.Todo.findById(req.params.todoId)
+  .then(function(foundTodo) {
+    res.json(foundTodo);
+  })
+  .catch(function(err) {
+    res.send(err.message);
+  })
+}
+
+exports.updateTodo = function(req, res) {
+  db.Todo.findOneAndUpdate({_id: req.params.todoId}, req.body, {new: true})
+  .then(function(todo) {
+    res.json(todo);
+  })
+  .catch(function(err) {
+    res.send(err.message);
+  })
+}
+
+exports.deleteTodo = function(req, res) {
+  db.Todo.findByIdAndDelete({_id: req.params.todoId})
+  .then(function(todo) {
+    res.json({message: "We deleted i!"});
+  })
+  .catch(function(err) {
+    res.send(err.message);
+  })
+}
+
 module.exports = exports;
