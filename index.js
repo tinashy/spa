@@ -7,6 +7,10 @@ var express = require('express'),
 //body parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+//serving static files
+app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
+
 //mongoose
 const db_Url = process.env.DB_URL || "mongodb://localhost:27017/spa";
 mongoose
@@ -24,7 +28,7 @@ mongoose
 var todoRoutes = require('./routes/todos');
 
 app.get('/', function(req, res) {
-  res.send("Hello from the root route");
+  res.sendFile("index.html");
 });
 
 app.use('/api/todos', todoRoutes);
