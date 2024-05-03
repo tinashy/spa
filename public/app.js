@@ -19,7 +19,7 @@ function addTodos(todos) {
 }
 
 function addTodo(todo) {
-  var newTodo = $('<li class="task">'+todo.name +'</li>');
+  var newTodo = $('<li class="task">'+todo.name +'<span>x</span></li>');
   if (todo.completed) {
     newTodo.addClass("done");
   }

@@ -65,3 +65,18 @@ h2 {
   text-decoration: line-through;
   opacity: .2;
 }
+
+.task:hover span {
+  opacity: 1;
+}
+
+.task span {
+  float: right;
+  color: #c0392b;
+  transition: all .3s;
+  opacity: 0;
+}
+
+.task span:hover {
+  color: #e74c3c;
+}
