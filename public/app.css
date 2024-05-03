@@ -45,3 +45,23 @@ h2 {
 .form input[type=text]:focus {
   outline: none;
 }
+
+.list {
+  align-self: flex-start;
+  margin: 3rem 10rem;
+}
+
+.task {
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.task:hover {
+  background-color: rgba(128, 128, 128, .5);
+  cursor: pointer;
+}
+
+.list .done {
+  text-decoration: line-through;
+  opacity: .2;
+}
